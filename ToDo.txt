@@ -1,0 +1,33 @@
+======================================================================
+
+-- FollowPage
+  > [BUG]: upon following/unfollowing user, after navigating to
+    followers/following tab, follow button on the corresponding
+    followed/unfollowed userBanner doesn't reflect change
+
+  > Add top friends table? Add a search bar?
+
+
+-- AccountPage
+  > make user card more aesthetic. possibly add other details,
+    like following/followers count. maybe QR code? share link?
+
+  > add feedback tab to allow users to send feedback messages.
+    deliver messages via automated email.
+
+
+-- Login/Register
+  > add 'Terms & Conditions'. just simple text disclaiming
+    no malicious intent with user emails, security warnings,
+    and known risks.
+
+
+-- ItemTable/ItemModal
+  > refactor into functional components
+
+
+
+========== BACKEND ===================================================
+
+--- MongoAtlas
+  > after deployment, allow access from IP server

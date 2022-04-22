@@ -1,0 +1,150 @@
+@import '~/src/index.scss';
+
+.Account {
+  animation: fadeIn $anim-fast ease-out;
+  flex-grow: 1;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+
+  .head {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 3rem 3rem 1rem;
+
+    & > :not(:last-child) { margin-bottom: 1rem; }
+
+    .usercard {
+      @include border;
+      transition: $transition-fast;
+      background-color: rgba($color-black, .05);
+      border-radius: $br-subtle;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 0 1rem;
+      width: calc(100% - 3rem);
+      max-width: 80rem;
+
+      &:hover {
+        background-color: rgba($color-white, .1);
+      }
+
+      .userName {
+        font-size: $fs-heading;
+        font-weight: 800;
+        color: $color-white;
+      }
+
+      .userHandle {
+        font-size: $fs-large;
+        font-weight: 700;
+        color: rgba($color-white, .4);
+      }
+
+      .stats {
+        padding: .5rem 2rem;
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+
+        &__stat {
+          display: flex;
+          justify-content: center;
+          align-items: baseline;
+          text-decoration: none;
+          font-size: $fs-standard;
+          font-weight: 700;
+          color: $color-black-light;
+          padding: .5rem 0;
+          border-bottom: 3px solid transparent;
+          transition: $transition-fast;
+
+          &:not(:last-child) { margin-right: 4rem; }
+
+          &__num {
+            margin-right: .5rem;
+            color: $color-black-lighter;
+            font-size: $fs-large;
+            transition: $transition-fast;
+          }
+
+          &:hover {
+            color: rgba($color-white, .8);
+
+            .stats__stat__num {
+              color: rgba($color-white, 1);
+            }
+            border-bottom: 3px solid rgba($color-white, .6);
+          }
+        }
+      }
+
+    }
+
+    .activity {
+      align-self: center;
+      font-size: $fs-small;
+      font-weight: 600;
+      color: rgba($color-white,.4);
+    }
+  }
+
+
+  .body {
+    flex: 1;
+    margin-top: 2rem;
+    padding: 0 10rem;
+    display: flex;
+    border-top: 1px solid rgba($color-white, .2);
+
+    .navigation {
+      display: inline-flex;
+      border-right: 1px solid rgba($color-white, .2);
+
+      ul {
+        padding: 3rem 2rem;
+        display: flex;
+        flex-direction: column;
+
+        a:link,
+        a:visited {
+          text-decoration: none;
+          font-size: $fs-standard;
+          font-weight: 700;
+          color: $color-black-lighter;
+          transition: $transition-fast;
+          padding: 0 2rem;
+          white-space: nowrap;
+
+          &:hover,
+          &.active { color: $color-white; }
+        }
+
+        & > a:not(:last-child) {margin-bottom: 3rem;}
+
+        & > a:last-child {
+          @include glass-thin;
+          padding: .75rem 1rem;
+          text-align: center;
+          &:hover { background-color: rgba($color-white, .2) }
+        }
+      }
+    }
+
+    .display {
+      flex: 1;
+      margin: 2.5rem;
+    }
+  }
+}

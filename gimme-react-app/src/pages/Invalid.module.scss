@@ -1,0 +1,22 @@
+@import '~/src/index.scss';
+
+.InvalidPage {
+  animation: fadeIn $anim-fast ease-out;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  .heading {
+    font-size: $fs-larger;
+    font-weight: 800;
+    color: $color-white;
+    margin-bottom: 1rem;
+  }
+
+  .body {
+    max-width: 80rem;
+    font-size: $fs-standard;
+    color: rgba($color-white, .6);
+    font-weight: 500;
+  }
+}

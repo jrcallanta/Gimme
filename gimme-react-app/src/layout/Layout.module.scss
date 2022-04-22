@@ -1,0 +1,17 @@
+@import '~/src/index.scss';
+
+.Layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background-image:
+    linear-gradient(
+      to bottom right,
+      rgba($color-blue, .9),
+      rgba($color-violet, .5)
+    ),
+    linear-gradient(rgba($color-black,1),rgba($color-black,.3));
+}

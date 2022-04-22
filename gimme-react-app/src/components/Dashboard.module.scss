@@ -1,0 +1,50 @@
+@import '~/src/index.scss';
+
+@mixin fullscreen {
+  padding: 0;
+
+  & > :first-child,
+  & > :last-child {border-radius: 0}
+}
+
+@mixin window {
+  padding: 1.5rem;
+
+  & > :first-child {
+    border-bottom: 1px solid rgba($color-white, .4);
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+
+  & > :last-child {
+    border-top: none;
+    border-radius: 0 0 1.5rem 1.5rem;
+  }
+}
+
+.Dashboard {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 60rem;
+  height: 100vh;
+  min-height: 60rem;
+  margin: auto;
+  overflow: hidden;
+  transition: $transition-medium;
+
+  & > :first-child {
+    @include glass;
+  }
+
+  & > :last-child {
+    @include glass-thin;
+  }
+}
+
+.Dashboard[type='fullscreen'] {
+  @include fullscreen;
+}
+
+.Dashboard[type='window'] {
+  @include window;
+}

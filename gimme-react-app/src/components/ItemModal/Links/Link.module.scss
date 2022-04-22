@@ -1,0 +1,58 @@
+@import '~/src/index.scss';
+
+.link {
+  min-width: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+  transition: $transition-medium;
+
+  &__removeButton {
+    margin-left: 1rem;
+    color: $color-black-lighter;
+    transition: $transition-medium;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-black-light;
+
+      & + .link__link {
+        color: $color-black-light;
+        background-color: rgba($color-black,.08);
+      }
+    }
+  }
+
+  .hidden {
+    margin-right: -.6rem;
+    visibility: hidden;
+  }
+
+  &__link {
+    flex: 1;
+    min-width: 0;
+    transition: $transition-fast;
+
+    a:visited,
+    a:link {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: block;
+      overflow: hidden;
+
+      padding: .25rem .6rem;
+      border-radius: .6rem;
+      text-decoration: none;
+      color: $color-black-lighter;
+      background-color: rgba($color-black,.05);
+
+      &:hover,
+      &:focus {
+        color: $color-black-light;
+        background-color: rgba($color-black,.08);
+      }
+    }
+  }
+
+}

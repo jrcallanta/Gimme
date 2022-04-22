@@ -1,0 +1,20 @@
+@import '~/src/index.scss';
+
+.Form {
+  padding: 0 2rem;
+  overflow-x: hidden;
+
+  .header {
+    font-size: $fs-larger;
+    color: rgba($color-white, 1);
+    font-weight: 800;
+    margin-bottom: 4rem;
+  }
+
+  .forms {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    max-width: 40rem;
+  }
+}

@@ -1,0 +1,69 @@
+@import '~/src/index.scss';
+
+
+
+.EditableTags {
+  animation-name: fadeSlideLeft;
+  animation-duration: 500ms;
+  animation-fill-mode: backwards;
+
+  padding: 0 3rem;
+  margin-bottom: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: hidden;
+  max-height: 14rem;
+
+  .showAllButton {
+    cursor: pointer;
+    font-size: $fs-smaller;
+    align-self: center;
+    color: rgba($color-black, .8);
+    margin-top: 1rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+
+
+    & > :not(:last-child) {
+      margin-right: 1rem;
+    }
+
+    .tag {
+      @include tag;
+
+      .closeButton {
+        height: .8rem;
+        width: .8rem;
+        margin-left: -.2rem;
+        margin-right: .5rem;
+        cursor: pointer;
+        transition: $transition-fast, visibility 0ms;
+
+        &__icon {
+          width: 100%;
+          height: 100%;
+          opacity: .5;
+          background-image: url('~/src/assets/icons/x_black.svg');
+          background-size: cover;
+        }
+      }
+
+      p {
+        display: inline-block;
+        color: rgba($color-black, .7);
+      }
+
+      &:hover {
+        .closeButton__icon {
+          opacity: .6;
+        }
+      }
+    }
+  }
+}

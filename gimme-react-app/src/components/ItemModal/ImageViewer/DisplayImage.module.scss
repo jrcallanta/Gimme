@@ -1,0 +1,37 @@
+@import '~/src/index.scss';
+
+.imageBlock {
+  @include imageBlock;
+  width: 100%;
+  max-width: 100rem;
+
+
+  &__img {
+    background-color: rgba($color-white, .4);
+    border: 2px solid rgba($color-white, .5);
+    border-radius: 2rem;
+    overflow: hidden;
+  }
+
+  .missingImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 80%;
+    max-width: 70rem;
+    background-color: rgba($color-white, .4);
+    border: 2px solid rgba($color-white, .5);
+    border-radius: 2rem;
+    overflow: hidden;
+
+    &__icon {
+      height: 100%;
+      width: 100%;
+      background-image: url('~/src/assets/icons/question-mark.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

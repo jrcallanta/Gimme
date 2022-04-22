@@ -1,0 +1,58 @@
+@import '~/src/index.scss';
+
+.button {
+  &__start {
+    margin-right: auto;
+  }
+  &__end {
+    margin-left: auto;
+  }
+
+  box-shadow: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 1rem;
+  border-radius: .5rem;
+  background-color: rgba($color-black, .1);
+  color: rgba($color-white, .6);
+  font-size: $fs-small;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: $transition-fast;
+
+  &:hover {
+    color: $color-white;
+    background-color: rgba($color-white, .2);
+    box-shadow: inherit;
+  }
+
+
+  &__dark {
+    background-color: rgba($color-black, .25);
+    color: rgba($color-white, 1);
+    &:hover {
+      color: $color-white;
+      background-color: rgba($color-black, .4);
+      box-shadow: inherit;
+    }
+  }
+
+
+  &__danger {
+    background-color: rgba($color-red, .2);
+    &:hover {
+      background-color: rgba($color-red, .7);
+    }
+
+    &.button__dark {
+      background-color: rgba($color-red, .4);
+      color: rgba($color-white, 1);
+      &:hover {
+        background-color: rgba($color-red, .7);
+      }
+    }
+  }
+}

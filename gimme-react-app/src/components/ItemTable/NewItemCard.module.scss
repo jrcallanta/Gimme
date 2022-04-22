@@ -1,0 +1,47 @@
+@import '~/src/index.scss';
+@import './ItemCard.module.scss';
+
+.NewItemCard {
+  @include glass-thinner;
+  @include itemCard;
+  justify-content: flex-end;
+  align-items: center;
+  cursor: pointer;
+
+  .plusButton {
+    @include glass-thinner;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+
+    &__icon {
+      width: 30%;
+      height: 30%;
+      transform: rotate(45deg);
+      background-image: url('../../assets/icons/x.svg');
+      opacity: .5;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    transform: translateY(-2px);
+    background-color: rgba($color-white, .1);
+
+    .plusButton {
+      background-color: rgba($color-white, .2);
+
+      .plusButton__icon {
+        opacity: .7;
+      }
+    }
+  }
+
+}

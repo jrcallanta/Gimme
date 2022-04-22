@@ -1,0 +1,6 @@
+.CreateListView {
+  display: flex;
+  flex-direction: column;
+
+  & > nth-child(2) { flex-grow: 1; }
+}

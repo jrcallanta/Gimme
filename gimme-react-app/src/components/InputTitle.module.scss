@@ -1,0 +1,58 @@
+@import '~/src/index.scss';
+
+.InputTitle {
+  max-width: 50rem;
+  flex-grow: 1;
+  margin: 0 1.5rem;
+  overflow: hidden;
+
+  &__input {
+    all: unset;
+    width: 100%;
+    transition: $transition-fast, height 0ms;
+    padding-bottom: .25rem;
+    overflow: hidden;
+
+    &::placeholder { color: rgba($color-white, .4); }
+    &.active {}
+  }
+
+  &__input,
+  &__fixed {
+    font-size: $fs-large;
+    font-weight: 800;
+    color: $color-white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  &__fixed {
+    max-width: max-content;
+    padding-bottom: .6rem;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &.disabled { cursor: default; }
+  }
+
+
+  &__hint {
+    margin-top: .5rem;
+    font-size: $fs-standard;
+    font-weight: 500;
+    color: rgba($color-white, .4);
+  }
+}
+
+.underline {
+  .InputTitle__input {
+    border-bottom: 2px solid rgba($color-white, .4);
+  }
+  .InputTitle__input.active {
+    border-bottom: 2px solid $color-white;
+  }
+  .InputTitle__fixed {
+    border-bottom: 2px solid transparent;
+  }
+}

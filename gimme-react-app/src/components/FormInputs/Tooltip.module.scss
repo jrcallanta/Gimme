@@ -1,0 +1,32 @@
+@import '~/src/index.scss';
+
+.Tooltip {
+  position: relative;
+
+  &__button {
+    background-color: rgba($color-white, .2);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $color-white;
+    font-weight: 600;
+    cursor: default;
+  }
+
+  &__tip {
+    position: absolute;
+    min-width: 16rem;
+    max-width: 18rem;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    background-color: $color-white;
+    padding: 1.25rem;
+    font-size: $fs-small;
+    border-radius: $br-subtle $br-subtle $br-subtle 0;
+    box-shadow: 0 0 .2rem rgba($color-black, .2);
+  }
+}

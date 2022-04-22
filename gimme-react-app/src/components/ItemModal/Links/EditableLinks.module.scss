@@ -1,0 +1,107 @@
+@import '~/src/index.scss';
+
+.EditableLinks{
+  animation-name: slideUp;
+  animation-duration: 500ms;
+  animation-delay: 350ms;
+  animation-fill-mode: backwards;
+
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  width: 100%;
+  transition: $transition-medium;
+
+  border-top: 1px solid rgba($color-white, .6);
+  padding: 2rem 3rem;
+  font-size: $fs-small;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+
+  &__hidden {
+    display: none;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    &__label {
+      font-weight: 600;
+    }
+
+    &__showMoreButton {
+      all: unset;
+      margin-left: 2rem;
+      display: inline-block;
+      font-weight: 600;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: $transition-fast;
+
+      &:hover {
+        border-bottom: 2px solid $color-black-lighter;
+      }
+    }
+
+    .hidden {
+      margin-right: -.6rem;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    & > :first-child {
+      // margin-bottom: 1rem;
+    }
+
+    .moreLinks {
+      transition: all 500ms ease;
+      display: flex;
+      flex-direction: column;
+      height: 1rem;
+      margin-top: 1rem;
+
+      & > :not(:last-child) {
+        margin-bottom: 1rem;
+      }
+    }
+
+
+    .hiddenLinks {
+      margin-top: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+    }
+
+    .addLink {
+      margin-top: 1rem;
+    }
+  }
+
+
+  &:hover {
+    background-color: rgba($color-white, .2);
+
+    .header {
+      &__label {
+
+      }
+
+      &__showMoreButton{
+        border-bottom: 2px solid $color-black-lighter;
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@import './ImageViewer.module.scss';
+
+.NavImage {
+  transition: $transition-fast;
+  @include imageBlock;
+  max-width: 4.5rem;
+  position: relative;
+  margin-left: .5rem;
+  margin-right: .5rem;
+  cursor: pointer;
+
+  .closeButton {
+    transition: $transition-fast;
+    position: absolute;
+    left: 80%;
+    bottom: 80%;
+    z-index: 1;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .4rem;
+    background-color: $color-white;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &__icon {
+      width: 90%;
+      height: 90%;
+      opacity: .5;
+      background-image: url('~/src/assets/icons/x_black.svg');
+      background-size: cover;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .missingImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4.5rem;
+    width: 4.5rem;
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    background: rgba($color-white, .4);
+    border: 2px solid rgba($color-white, .8);
+    border-radius: 1rem;
+    overflow: hidden;
+
+    &__dim {
+      border: 2px solid transparent;
+      filter: brightness(.80);
+    }
+
+    &__icon {
+      height: 60%;
+      width: 60%;
+      background-image: url('~/src/assets/icons/question-mark.svg');
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  // &:first-child {
+  //   margin-left: auto;
+  // }
+  //
+  // &:last-child {
+  //   margin-right: auto;
+  // }
+
+  &__img {
+    transition: $transition-fast;
+    background-color: rgba($color-white, .4);
+    box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    border: 2px solid rgba($color-white, .8);
+    border-radius: 1rem;
+    overflow: hidden;
+
+    &__dim {
+      border: 2px solid transparent;
+      filter: brightness(.75);
+    }
+  }
+
+  &:hover {
+    // transform: scale(1.1);
+
+    .NavImage__img {
+      filter: brightness(1);
+    }
+  }
+}

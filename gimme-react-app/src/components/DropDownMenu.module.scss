@@ -1,0 +1,63 @@
+@import '~/src/index.scss';
+
+.DropDownMenu {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+
+  & > .options {
+    position: absolute;
+    top: 0%;
+    min-width: 100%;
+    background-color: rgba($color-black, .15);
+    backdrop-filter: blur(8rem);
+    border-radius: .5rem;
+
+    &.left { left: 0%; }
+    &.right { right: 0%; }
+    & > .option {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding:  .5rem 1rem;
+      font-size: $fs-small;
+      color: rgba($color-white, .6);
+
+      & > .selectedIcon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: auto;
+        width: 1rem;
+        height: 1rem;
+
+        & > .icon {
+          opacity: .8;
+          width: 80%;
+          height: 80%;
+          background-image: url('~/src/assets/icons/check.svg');
+        }
+      }
+
+      &__lowercase { text-transform: lowercase; }
+      &__uppercase { text-transform: uppercase; }
+      &__capitalize { text-transform: capitalize; }
+
+      &:first-child { border-radius: .5rem .5rem 0 0; border-bottom: 1px solid rgba($color-white, .2); }
+      &:last-child { border-radius: 0 0 .5rem .5rem }
+      &:hover { background-color: rgba($color-white, .4); color: rgba($color-white, 1); }
+    }
+  }
+}
+
+.DropDownMenu[type='light'] {
+  & > .options {
+    background-color: $color-white;
+    & > .option {
+      color: $color-black-light;
+      & > .selectedIcon > .icon { background-image: url('~/src/assets/icons/check_black.svg')}
+      &:first-child {border-bottom: 1px solid rgba($color-black, .1); }
+      &:hover { background-color: rgba($color-black, .1); color: $color-black; }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+@import '~/src/index.scss';
+
+@mixin tileStyle {
+  @include border;
+  border-radius: $br-subtle;
+  padding: 2rem 1rem;
+  text-align: center;
+
+  .followStatus {
+    justify-content: center;
+  }
+
+  &:hover { background-color: rgba($color-white, .1); }
+}
+
+@mixin pad-left {
+  padding-left: .5rem;
+}
+
+.UserBanner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: $br-subtle;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+  transition: $transition-medium;
+
+  & > :not(:last-child) { margin-bottom: 2rem; }
+
+  .header {
+
+    & > a { text-decoration: none; }
+
+    .username {
+      @include pad-left;
+      font-size: $fs-larger;
+      font-weight: 800;
+      color: $color-white;
+      width: 100%;
+      overflow: hidden;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      margin-bottom: .25rem;
+    }
+
+    .userhandle {
+      @include pad-left;
+      flex-grow: 1;
+      font-size: $fs-standard;
+      font-weight: 700;
+      overflow: hidden;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: rgba($color-white, .8);
+    }
+  }
+
+
+  .followStatus {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .friendsIndicator {
+      cursor: default;
+      border: 1.5px solid rgba($color-white, .6);
+      width: fit-content;
+      padding: .25rem .75rem;
+      color: rgba($color-white, .8);
+      font-size: $fs-small;
+      font-weight: 600;
+      border-radius: $br-subtle;
+    }
+
+    & > :not(:last-child) { margin-right: 1rem; }
+  }
+
+  .followStats {
+    @include pad-left;
+    width: 100%;
+    display: flex;
+    // flex-direction: column;
+    flex-direction: row;
+    align-items: stretch;
+
+    a { text-decoration: none; }
+
+    &__stat {
+      font-size: $fs-small;
+      font-weight: 600;
+      border-bottom: 2px solid transparent;
+      transition: $transition-fast;
+      padding-bottom: .5rem;
+
+      &:hover {
+        border-bottom: 2px solid $color-black-lighter;
+        & > * { color: $color-white; }
+      }
+
+      &__num {
+        color: $color-white;
+        margin-right: .25rem;
+      }
+
+      &__label {
+        color: rgba($color-white, .6);
+      }
+
+    }
+
+    // & > :not(:last-child) { margin-bottom: .5rem; }
+    & > :not(:last-child) { margin-right: 1.5rem; }
+  }
+}
+
+.UserBanner[type='block'] {
+  margin-bottom: 0;
+  padding: 1rem 2rem 1.5rem;
+  // border-radius: 0;
+  & > :not(:last-child) { margin-bottom: 1rem; }
+
+  .header {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+
+
+    .username {
+      width: fit-content;
+      margin-right: .5rem;
+      font-size: $fs-large;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .userhandle {
+      width: auto;
+      flex-grow: 1;
+      font-size: $fs-standard;
+      overflow: hidden;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+}

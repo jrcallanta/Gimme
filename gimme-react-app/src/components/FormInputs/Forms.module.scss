@@ -1,0 +1,119 @@
+@import '~/src/index.scss';
+
+.form {
+  display: inline-block;
+  border-radius: $br-standard;
+  margin-right: 5rem;
+  min-width: 18rem;;
+
+  // &:not(:last-child) { margin-bottom: 5rem; }
+
+  .row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h2.label {margin-bottom: 0 }
+
+    & > :not(:last-child) {margin-right: 1rem;}
+
+  }
+
+  .combinedInputGroup {
+    & > .formGroup:not(:last-child) { margin-bottom: 2.5rem; }
+  }
+
+  .formGroup {
+    margin-bottom: 4rem;
+
+    & > .label {
+      display: flex;
+      margin-bottom: 1rem;
+      font-size: $fs-standard;
+      color: rgba($color-white, .8);
+    }
+
+    & > .labelLine {
+      display: flex;
+      margin-bottom: 1rem;
+
+      .labelLine__text {
+        font-size: $fs-standard;
+        color: rgba($color-white, .8);
+      }
+
+      & > :nth-child(2) { margin-left: 1rem; }
+    }
+
+    .formInput {
+      background-color: rgba($color-white, .4);
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      font-size: $fs-standard;
+      font-weight: 600;
+      border-radius: .5rem;
+      margin-bottom: .25rem;
+
+      &__prepend {
+        padding: .5rem 0 .5rem .5rem;
+      }
+
+      input {
+        all: unset;
+        flex: 1;
+        padding: .5rem;
+        min-width: 0;
+
+        &::placeholder {
+          color: rgba($color-black, .4)
+        }
+
+
+        &[type='password'] {
+          font: small Verdana, sans-serif;
+        }
+      }
+    }
+  }
+
+  &__submit {
+    all: unset;
+    background-color: rgba($color-black-light, .4);
+    color: rgba($color-white,.8);
+    font-size: $fs-small;
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    transition: $transition-fast;
+
+    &.append {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:disabled{
+      background-color: rgba($color-black-light, .1)
+    }
+
+    &:not(:disabled):hover {
+      background-color: rgba($color-black-light, .6);
+      color: rgba($color-white, 1);
+    }
+  }
+
+  .hint {
+    font-size: $fs-smaller;
+    font-weight: 500;
+    margin-left: .25rem;
+    color: rgba($color-white, .6);
+    height: 1px;
+  }
+
+  .feedback {
+    font-size: $fs-standard;
+    font-weight: 500;
+    color: $color-black-lighter;
+    white-space: nowrap;
+  }
+
+}

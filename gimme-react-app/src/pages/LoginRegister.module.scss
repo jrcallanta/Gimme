@@ -1,0 +1,86 @@
+@import '~/src/index.scss';
+
+.LoginPage,
+.RegisterPage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+  align-items: stretch;
+  font-size: $fs-standard;
+  overflow-y: scroll;
+
+  .loginForm,
+  .registerForm {
+    @include glass;
+    @include border;
+    overflow: hidden;
+    margin: auto;
+    width: 40rem;
+    height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+
+    .heading {
+      text-align: center;
+      font-size: $fs-heading;
+      font-weight: 800;
+      color: rgba($color-white, .8);
+      height: fit-content;
+      margin-top: 10rem;
+      margin-bottom: 4rem;
+    }
+
+    & > * {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button {
+      text-align: center;
+      font-weight: 600;
+      margin-top: 3rem;
+    }
+
+    p {
+      margin-top: 1rem;
+      color: $color-black-lighter;
+      font-weight: 500;
+    }
+
+    .registerNavigation {
+      padding: 1.5rem;
+      background-color: rgba($color-white, .2);
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      transition: $transition-fast;
+
+      &:hover {
+        background-color: rgba($color-white, .4);
+        a:link,
+        a:visited { text-decoration: underline; }
+      }
+
+      a:link,
+      a:visited {
+        text-decoration: none;
+        color: $color-black-light;
+        transition: $transition-fast;
+      }
+    }
+  }
+
+  .registerForm {
+    background-color: rgba($color-white,.1);
+    height: fit-content;
+    padding-bottom: 4rem;
+
+
+    // & > form > :not(:last-child) {margin-bottom: 4rem;}
+  }
+}

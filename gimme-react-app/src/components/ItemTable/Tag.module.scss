@@ -1,0 +1,13 @@
+@import '~/src/index.scss';
+
+
+.Tag {
+  @include tag;
+
+  &__active {
+    &:hover {
+      background-color: rgba($color-white, .8);
+    }
+    background-color: rgba($color-white, .8);
+  }
+}
