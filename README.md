@@ -127,7 +127,7 @@ This project was built using the MERN stack.
 
 #### MongoDB, Mongo Atlas, and Mongoose
 
-The backend is supported by Mongo Atlas under a free tier. The database consists of 4 collections: **Sessions**, **Users**, **Lists**, and **Items**.
+The backend database is supported by Mongo Atlas under a free tier. The database consists of 4 collections: **Sessions**, **Users**, **Lists**, and **Items**.
 
 - **Sessions**: used primarily to track authorized users, providing tokens from scratch that expire after 7 days of inactivity.
 
@@ -139,7 +139,7 @@ The backend is supported by Mongo Atlas under a free tier. The database consists
 
 #### Express.js
 
-The middleware is supported by Express.js and api routes that follow the REST protocols. API Routes can be reached using the `/api/routes/` prefix followed by the fields below:
+The backend is supported by Express.js and api routes that follow the REST protocols. API Routes can be reached using the `/api/routes/` prefix followed by the fields below:
 
 ** THESE FIELDS HAVE BEEN REMOVED FOR PRIVACY REASONS **
 
@@ -154,7 +154,7 @@ The frontend is built and supported by React library, with frequent use of funct
 
 #### Node.js
 
-The package management is supported by Node.js, using the following packages and their dependencies:
+The middleware and package management is supported by Node.js, using the following packages and their dependencies:
 
 - **`express ^4.17.3`**
 
