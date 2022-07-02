@@ -92,32 +92,40 @@ module.exports = (data) => {
     console.log('api: LOGIN/WITHTOKEN -> POST')
 
     const { token } = req.body;
-    const result = await data.Session.find({token: token}).exec();
-    if(result.length) {
-      const session = result[0]
-      const expiration = new Date(Date.now() + (7 * DAY_IN_MILLIS))
-      session.expiration = expiration
-      session.markModified('expiration');
-      await session.save()
+    try {
+      const result = await data.Session.find({token: token}).exec();
+      if(result.length) {
+        const session = result[0]
+        const expiration = new Date(Date.now() + (7 * DAY_IN_MILLIS))
+        session.expiration = expiration
+        session.markModified('expiration');
+        await session.save()
 
-      const user = await data.User.findById(result[0].userId.valueOf()).exec();
-      const lists = await data.ItemList.find({userId: user._id}).exec();
+        const user = await data.User.findById(result[0].userId.valueOf()).exec();
+        const lists = await data.ItemList.find({userId: user._id}).exec();
 
 
-      user.activity.lastSeen = new Date();
-      user.markModified('activity.lastSeen')
-      await user.save()
-      res.status(200).send({
-        message: `Succesfully signed in as ${user.handle}`,
-        user: {...user._doc, lists: lists},
-        token: token
+        user.activity.lastSeen = new Date();
+        user.markModified('activity.lastSeen')
+        await user.save()
+        res.status(200).send({
+          message: `Succesfully signed in as ${user.handle}`,
+          user: {...user._doc, lists: lists},
+          token: token
+        })
+      }
+
+      else res.status(400).send({
+        message: `Could not find session ${token}`,
+        error: {}
+      })
+    } catch (err) {
+      res.status(400).send({
+        message: 'There was an issue logging in. Try again',
+        error: err
       })
     }
 
-    else res.status(400).send({
-      message: `Could not find session ${token}`,
-      error: {}
-    })
   })
 
 
