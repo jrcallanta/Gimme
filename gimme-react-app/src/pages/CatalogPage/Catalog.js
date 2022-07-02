@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 
-import ItemTable from '../../components/ItemTable/ItemTableWithCache';
+import ItemTableWithCache from '../../components/ItemTable/ItemTableWithCache';
 import UserBanner from '../../components/UserBanner';
 import ListNav from './ListNav';
 import CreateListView from './CreateListView';
@@ -163,7 +163,7 @@ function CatalogPage(props){
             { // Route for each retrieved list (public/private/etc)
               lists.map((list,i) => (
                 <Route path={(list._id) ? `${list._id}` : 'all-items'} key={i} exact element={
-                  <ItemTable
+                  <ItemTableWithCache
                     user={props.user}
                     isEditable={props.isOwner}
                     list={list}

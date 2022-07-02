@@ -296,7 +296,8 @@ class ItemTable extends React.Component {
   //  requesting a list deletion
   deleteListHandler() {
     this.setState((prev) => {
-      this.props.onDeleteList()
+      this.props.clearList(this.props.list);
+      this.props.onDeleteList();
       return {...prev, showDeleteWarningBox: false}
     })
   }
