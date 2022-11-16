@@ -1,34 +1,37 @@
-@import '~/src/index.scss';
+@import "~/src/index.scss";
 
 .Catalogue {
-  animation: fadeIn $anim-fast ease-out;
-  width: 100%;
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-  height: 100%;
+    animation: fadeIn $anim-fast ease-out;
+    width: 100%;
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    height: 100%;
 
-  .SidePanel {
-    background-color: rgba($color-dark-blue, .2);
-    max-width: 24rem;
-    min-width: 24rem;
-    padding: 2rem 1rem;
-    padding-right: .5rem;
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
+    .SidePanel {
+        background-color: rgba($color-dark-blue, 0.2);
+        max-width: 24rem;
+        min-width: 24rem;
+        padding: 2rem 1rem;
+        padding-right: 0.5rem;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
 
-  .MainDisplay {
-    flex-grow: 1;
-    box-shadow: -.5rem 0 2rem rgba($color-black, .1);
-    border-left: 1px solid rgba($color-white, .2);
+    .MainDisplay {
+        flex-grow: 1;
+        box-shadow: -0.5rem 0 2rem rgba($color-black, 0.1);
+        border-left: 1px solid rgba($color-white, 0.2);
+        overflow: hidden;
 
-    & > * { padding-top: 2rem; padding-bottom: 2rem}
-  }
+        & > * {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
 }
 
-
 .newListInput {
-  display: flex;
+    display: flex;
 }

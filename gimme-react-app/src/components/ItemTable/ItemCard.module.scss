@@ -1,101 +1,107 @@
-@import '~/src/index.scss';
-
+@import "~/src/index.scss";
 
 @mixin itemCard {
-  @include border;
+    @include border;
 
-  border-radius: $br-standard;
-  box-sizing: content-box;
-  float: left;
-  padding: 1.2rem;
-  margin: 1rem;
-  width: 16rem;
-  height: 18rem;
-  color: $color-white;
-  // cursor: pointer;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+    border-radius: $br-standard;
+    box-sizing: content-box;
+    float: left;
+    padding: 1.2rem;
+    margin: 1rem;
+    min-width: 12rem;
+    width: 25%;
+    max-width: 16rem;
+    height: 18rem;
+    color: $color-white;
+    // cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
 
-  font-size: $fs-smaller;
-  font-weight: 600;
-  margin-left: .5rem;
+    font-size: $fs-smaller;
+    font-weight: 600;
+    margin-left: 0.5rem;
 }
 
-
 .ItemCard {
-  @include itemCard;
-  @include glass-thin;
-  @include border;
-  justify-content: space-between;
+    @include itemCard;
+    @include glass-thin;
+    @include border;
+    justify-content: space-between;
 
-  & > :not(:last-child){
-    margin-bottom: .5rem;
-  }
-
-  & > :not(:first-child){
-    margin-left: .5rem;
-    margin-right: .5rem;
-  }
-
-  &__image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    width: 100%;
-    height: 80%;
-    overflow: hidden;
-    background-color: rgba($color-white, .4);
-    border: 1px solid rgba($color-white, .5);
-    border-radius: $br-standard;
-
-    &__img {
-      margin: auto;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    & > :not(:last-child) {
+        margin-bottom: 0.5rem;
     }
 
-    .missingImage {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-
-      &__icon {
-        height: 50%;
-        width: 50%;
-        background-image: url('~/src/assets/icons/question-mark.svg');
-        background-size: cover;
-        background-position: center;
-      }
+    & > :not(:first-child) {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
     }
-  }
 
-  &__name {
-    margin-top: .5rem;
-    margin-bottom: .2rem;
-  }
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        width: 100%;
+        height: 80%;
+        overflow: hidden;
+        background-color: rgba($color-white, 0.4);
+        border: 1px solid rgba($color-white, 0.5);
+        border-radius: $br-standard;
 
-  &__link {
-    display: inline-block;
+        &__img {
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    a {
-      &:link,
-      &:visited {
+        .missingImage {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+            &__icon {
+                height: 50%;
+                width: 50%;
+                background-image: url("~/src/assets/icons/question-mark.svg");
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    }
+
+    &__name,
+    &__link {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__name {
+        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    &__link {
+        display: inline-block;
         color: $color-black-lighter;
-        text-decoration: none;
-        font-size: $fs-smaller;
-      }
+
+        a {
+            &:link,
+            &:visited {
+                color: $color-black-lighter;
+                text-decoration: none;
+                font-size: $fs-smaller;
+            }
+        }
     }
-  }
 
-
-  &:hover,
-  &:focus {
-    transform: translateY(-2px);
-    background-color: rgba($color-white, .2);
-  }
+    &:hover,
+    &:focus {
+        transform: translateY(-2px);
+        background-color: rgba($color-white, 0.2);
+    }
 }
