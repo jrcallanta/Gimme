@@ -215,7 +215,7 @@ function ItemModal(props) {
                                 classTypes={["end"]}
                                 onClick={toggleShowBuyers}
                             >
-                                {`view buyers ${state.itemState.buyers.length}`}
+                                {`view buyers (${state.itemState.buyers.length})`}
                             </Button>
                         )}
                 </div>

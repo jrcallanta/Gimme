@@ -17,14 +17,34 @@
     }
 
     .Buyer {
-        align-items: center;
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        padding: 1rem 1.5rem;
+        overflow: hidden;
+
+        &__user {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            gap: 1rem;
+        }
+
+        &__status {
+            padding: 1rem 3rem;
+            width: 16rem;
+            align-self: stretch;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
     .Buyer__button {
+        padding: 1rem 1.5rem;
         justify-content: center;
+        margin-bottom: 1rem;
     }
 }
 
@@ -42,30 +62,42 @@
             font-weight: 800;
         }
 
-        &__name {
-            font-size: 1.5rem;
-            color: hsl(0, 0%, 100%);
-            font-weight: 800;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        &__user {
+            &__name {
+                font-size: 1.5rem;
+                color: hsl(0, 0%, 100%);
+                font-weight: 800;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            &__handle {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: hsl(0, 0%, 100%);
+                text-decoration: none;
+            }
         }
 
-        &__handle {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: hsl(0, 0%, 100%);
-            text-decoration: none;
+        &__status {
+            &__text {
+                font-size: 1.25rem;
+                font-weight: 700;
+                color: hsl(0, 0%, 100%);
+            }
         }
     }
 }
 
 .BuyersModal {
     @include border;
-    border-radius: 2rem 2rem 0 0;
+    border-bottom: none;
+    border-radius: 2rem 2rem 2rem 0;
+    box-shadow: 0 0.5rem 0.5rem rgba($color-black, 0.1);
     background-image: linear-gradient(
-        180deg,
-        hsl(240, 53%, 84%),
+        171deg,
+        hsl(240, 37%, 87%),
         hsla(271, 50%, 77%, 0.8)
     );
     animation: swipeUp 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -91,21 +123,11 @@
 
         &:hover {
             filter: brightness(1.08) saturate(0.75);
-
-            // background-image: linear-gradient(
-            //         171deg,
-            //         hsla(240, 40%, 87%, 0.853),
-            //         hsla(258, 33%, 90%, 0.825)
-            //     ),
-            //     linear-gradient(
-            //         133deg,
-            //         hsla(246, 50%, 71%, 0.49),
-            //         hsla(252, 46%, 45%, 0.31)
-            //     );
         }
     }
 
     .Buyer__button {
+        animation: none;
         border: 1px solid white;
         background-image: linear-gradient(
             332deg,
@@ -117,6 +139,10 @@
             filter: brightness(1.08);
             cursor: pointer;
         }
+    }
+
+    .Buyer__status {
+        background-color: hsla(0, 0%, 100%, 0.2);
     }
 
     &::after {

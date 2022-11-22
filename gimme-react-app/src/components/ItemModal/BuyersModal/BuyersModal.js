@@ -59,13 +59,23 @@ function BuyersModal(props) {
                     className={classes.Buyer}
                     style={{ "--delay": `${500 + i * 50}ms` }}
                 >
-                    <h2 className={classes.Buyer__name}>{buyer.name}</h2>
-                    <NavLink
-                        to={`/${buyer.handle}`}
-                        className={classes.Buyer__handle}
-                    >
-                        @{buyer.handle}
-                    </NavLink>
+                    <div className={classes.Buyer__user}>
+                        <h2 className={classes.Buyer__user__name}>
+                            {buyer.name}
+                        </h2>
+                        <NavLink
+                            to={`/${buyer.handle}`}
+                            className={classes.Buyer__user__handle}
+                        >
+                            @{buyer.handle}
+                        </NavLink>
+                    </div>
+
+                    <div className={classes.Buyer__status}>
+                        <h2 className={classes.Buyer__status__text}>
+                            interested
+                        </h2>
+                    </div>
                 </div>
             ))}
         </div>
