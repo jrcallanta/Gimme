@@ -52,25 +52,28 @@ function ItemModal(props) {
         });
     }, [props.item, buyers]);
 
-    useEffect(() => {
-        console.log(ctx.currentUser);
-        if (ctx.currentUser?.following)
-            setBuyers(() => ctx.currentUser.following);
-    }, [ctx.currentUser]);
-
     useEffect(async () => {
-        if (showBuyers) {
-            const list = await makePost("/users/idList", {
-                idList: state.itemState.buyers,
+        console.log(ctx.currentUser);
+
+        if (showBuyers && ctx.currentUser) {
+            const validation = {
+                token: ctx.token,
+                userId: ctx.currentUser._id,
+            };
+
+            const list = await makePost("/buyerlist", {
+                validation,
+                itemId: state.itemState._id,
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    return data.userList ? data.userList : [];
+                    console.log(data);
+                    return data.buyers ? data.buyers : [];
                 });
 
-            setBuyers(() => list);
+            setBuyers(list);
         }
-    }, [showBuyers]);
+    }, [showBuyers, ctx.currentUser]);
 
     // Wrapper used to detect clicks outside of
     //   modal, triggering the parent to close it
@@ -164,6 +167,97 @@ function ItemModal(props) {
         }
     }
 
+    const handleJoin = async (userId) => {
+        const validation = {
+            token: ctx.token,
+            userId: ctx.currentUser._id,
+        };
+
+        const list = await makePost("/buyerlist/join", {
+            validation,
+            userId,
+            itemId: state.itemState._id,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                return data.buyers ? data.buyers : [];
+            });
+
+        setBuyers(list);
+    };
+
+    const handleUpdate = async (userId, status) => {
+        const validation = {
+            token: ctx.token,
+            userId: ctx.currentUser._id,
+        };
+
+        const list = await makePost("/buyerlist/update", {
+            validation,
+            userId,
+            itemId: state.itemState._id,
+            status,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                return data.buyers ? data.buyers : [];
+            });
+
+        setBuyers(list);
+    };
+
+    const handleLeave = async (userId) => {
+        const validation = {
+            token: ctx.token,
+            userId: ctx.currentUser._id,
+        };
+
+        const list = await makePost("/buyerlist/leave", {
+            validation,
+            userId,
+            itemId: state.itemState._id,
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                return data.buyers ? data.buyers : [];
+            });
+
+        setBuyers(list);
+    };
+
+    const updateBuyers = (options) => {
+        switch (options.type) {
+            case "join": {
+                const { userId } = options;
+                console.log("joining", userId);
+
+                handleJoin(userId);
+                break;
+            }
+
+            case "update": {
+                const { userId, status } = options;
+                console.log("updating", userId, status);
+
+                handleUpdate(userId, status);
+                break;
+            }
+
+            case "leave": {
+                const { userId } = options;
+                console.log("leaving", userId);
+
+                handleLeave(userId);
+                break;
+            }
+            default: {
+            }
+        }
+    };
+
     return (
         <div ref={wrapperRef} className={classes.ItemModal}>
             <div className={classes.closeButton} onClick={props.onClose}>
@@ -254,8 +348,9 @@ function ItemModal(props) {
 
                 {showBuyers && state.itemState.buyers && (
                     <BuyersModal
-                        buyersList={buyers}
+                        buyers={buyers}
                         onClose={toggleShowBuyers}
+                        onUpdateBuyers={updateBuyers}
                     />
                 )}
             </div>

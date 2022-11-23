@@ -51,7 +51,7 @@ function App() {
                   : <LoginPage/>
                 }/>
                 <Route path="*" element={<Navigate to="/login"/>}/>
-              }</Route>
+              </Route>
 
 
               <Route path="register/*" >
