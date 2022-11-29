@@ -102,6 +102,17 @@ const itemSchema = new mongoose.Schema({
 })
 exports.Item = mongoose.model("items", itemSchema)
 
+const buyerSchema = new mongoose.Schema({
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    status: { type: String, enum: ['interested', 'purchased'], required: true },
+    lastUpdate: { type: Date, required: true, default: Date.now }
+})
+
+const buyerListSchema = new mongoose.Schema({
+    itemId: { type: mongoose.Schema.Types.ObjectId, ref: 'Item', required: true },
+    buyers: { type: [ buyerSchema ], required: true, default: [] }
+})
+exports.BuyerList = mongoose.model("buyerlists", buyerListSchema);
 
 /*** Helper Functions ******************************************/
 
