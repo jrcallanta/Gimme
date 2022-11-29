@@ -52,10 +52,10 @@ function ItemModal(props) {
         });
     }, [props.item, buyers]);
 
+    // Hooke used to retrieve buyers on modal render
+    //   and if current user updates
     useEffect(async () => {
-        console.log(ctx.currentUser);
-
-        if (showBuyers && ctx.currentUser) {
+        if (ctx.currentUser) {
             const validation = {
                 token: ctx.token,
                 userId: ctx.currentUser._id,
@@ -67,13 +67,12 @@ function ItemModal(props) {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data);
                     return data.buyers ? data.buyers : [];
                 });
 
             setBuyers(list);
         }
-    }, [showBuyers, ctx.currentUser]);
+    }, [ctx.currentUser]);
 
     // Wrapper used to detect clicks outside of
     //   modal, triggering the parent to close it
