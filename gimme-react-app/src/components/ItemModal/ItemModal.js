@@ -302,7 +302,9 @@ function ItemModal(props) {
                         </Button>
                     )}
                     {!props.isEditable &&
-                        ctx.currentUser &&
+                        ctx.currentUser?.followers.includes(
+                            state.itemState.userId.toString()
+                        ) &&
                         state.itemState.buyers && (
                             <Button
                                 classTypes={["end"]}
